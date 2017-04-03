@@ -12,6 +12,6 @@
 
 <body>
 Wellcome to <a href="DepartmentsList">Departments</a>
-
+    <h3>${msg}</h3>
 </body>
 </html>
