@@ -1,5 +1,7 @@
 package com.aimprosoft.controller;
 
+import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +11,6 @@ import java.sql.SQLException;
 
 public interface InternalController {
 
-    void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException;
+    ModelAndView execute (HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException;
 
 }
