@@ -1,7 +1,11 @@
 package com.aimprosoft.controller;
 
+import com.aimprosoft.model.Department;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
@@ -11,30 +15,21 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @Controller
-public class MainController implements InternalController{
+@RequestMapping(value = "/")
+public class MainController {
 
-
-    @RequestMapping({"/","/home"})
-    @Override
-    public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView main() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("msg", "Hello SpringMVC");
+        modelAndView.addObject("userJSP", new Department());
         modelAndView.setViewName("index");
         return modelAndView;
     }
+/*    public String showRoles (ModelMap model) {
 
-/*    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView main() {
-        List<Department> departments = null;
-        try {
-            departments = departmentService.showDepartments();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("departments", departments);
-        modelAndView.setViewName("depList");
-        return modelAndView;
+        model.addAttribute("msg", "Hello SpringMVC");
+
+        return "index";
     }*/
 
 }
